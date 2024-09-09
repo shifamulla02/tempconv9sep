@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title> temperature converter by shifa </title>
+		<style>
+			*{font-size:40px; font-family: Times New Roman;}
+			body{background-color: PeachPuff;}
+		</style>
+	</head>
+
+	<body>
+		<center>
+			<h1> ~ TEMPERATURE CONVERTER ~ </h1>
+			<form onsubmit="convertCF()">
+
+				<label for="cel" > Enter in celcius :</label>
+				<input type="text"	id="cel"	placeholder="deg celsius"/>
+				
+				<br/><br/>
+				<input type="submit"/>
+			</form>
+ 
+			<form onsubmit="convertFC()">
+
+				<label for="far" > Enter in fahrenheit :</label>
+				<input type="text" 	id="far"	placeholder="deg fahrenheit"/>
+				
+				<br/><br/>
+				<input type="submit"/>
+			</form>
+
+			<h2 id="msg"/>
+
+			<script>
+				function convertCF()
+				{
+					event.preventDefault();
+					let cel= document.getElementById("cel");
+					let msg= document.getElementById("msg");
+					let c= parseFloat(cel.value);
+					 
+					if(cel.value==="")
+					{
+						alert("enter a value!");
+						msg.innerHTML="";
+						cel.focus(); 
+						return;
+					}
+					
+					else
+					{
+					let con1="";
+
+					con1=(c*1.8)+32;
+					msg.innerHTML= "convertion of " + c + " deg celsius to fahrenheit is " + con1;
+					}
+				}
+
+				function convertFC()
+				{
+					event.preventDefault();
+					let far= document.getElementById("far");
+					let msg= document.getElementById("msg");
+					 
+					let f= parseFloat(far.value);
+					 
+					if(far.value==="")
+					{
+						alert("enter a value!");
+						msg.innerHTML="";
+						far.focus(); 
+						return;
+					}
+					
+					else
+					{
+					let con2="";
+
+					con2=(f-32)*5/9;
+					msg.innerHTML= "convertion of " + f + " deg fahrenheit to celsius is " + con2;
+					}
+				}
+
+
+			</script>
+		
+		</center>
+	</body>
+
+</html>
